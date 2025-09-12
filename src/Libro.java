@@ -47,14 +47,7 @@ public class Libro {
 
         @Override
         public String toString() {
-            return "Libro{" +
-                    "id=" + ID +
-                    ", titulo='" + titulo + '\'' +
-                    ", autor='" + autor + '\'' +
-                    ", añopublic=" + añopublic +
-                    ", genero='" + genero + '\'' +
-                    ", disponible=" + (disponible ? "Sí" : "No") +
-                    '}';
+            return "Libro" + "ID:" + ID + ", Titulo:'" + titulo + '\'' + ", autor:'" + autor + '\'' + ", Año de publicación:" + añopublic + ", Genero:'" + genero + '\'' + ", Disponible:" + (disponible ? "Sí" : "No") + '}';
         }
     }
 
