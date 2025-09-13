@@ -1,54 +1,44 @@
 public class Libro {
-        private int ID;
-        private String titulo;
-        private String autor;
-        private int añopublic;
-        private String genero;
-        private boolean disponible;
+    private String Titulo;
+    private String Autor;
+    private int AñoDePublic;
+    private String Genero;
+    private boolean Disponible;
 
-        public Libro(int ID, String titulo, String autor, int añopublic, String genero) {
-            this.ID =ID;
-            this.titulo = titulo;
-            this.autor = autor;
-            this.añopublic = añopublic;
-            this.genero = genero;
-            this.disponible = true;
-        }
-
-        // Getters
-        public int getId() {
-            return ID;
-        }
-
-        public String getTitulo() {
-            return titulo;
-        }
-
-        public String getAutor() {
-            return autor;
-        }
-
-        public int getAñopublic() {
-            return añopublic;
-        }
-
-        public String getGenero() {
-            return genero;
-        }
-
-        public boolean isDisponible() {
-            return disponible;
-        }
-
-        // Setters
-        public void setDisponible(boolean disponible) {
-            this.disponible = disponible;
-        }
-
-        @Override
-        public String toString() {
-            return "Libro" + "ID:" + ID + ", Titulo:'" + titulo + '\'' + ", autor:'" + autor + '\'' + ", Año de publicación:" + añopublic + ", Genero:'" + genero + '\'' + ", Disponible:" + (disponible ? "Sí" : "No") + '}';
-        }
+    public Libro(String Titulo, String Autor, int AñoDePublic, String Genero) {
+        this.Titulo = Titulo;
+        this.Autor = Autor;
+        this.AñoDePublic = AñoDePublic;
+        this.Genero = Genero;
+        this.Disponible = true; //
     }
 
+    public String getTitulo() { return Titulo; }
+    public String getAutor() { return Autor; }
+    public int getAñoDePublic() { return AñoDePublic; }
+    public String getGenero() { return Genero; }
+    public boolean isDisponible() { return Disponible; }
 
+    public void setTitulo(String Titulo) { this.Titulo = Titulo; }
+    public void setAutor(String Autor) { this.Autor = Autor; }
+    public void setAñoDePublic(int AñoDePublic) { this.AñoDePublic = AñoDePublic; }
+    public void setGenero(String Genero) { this.Genero = Genero; }
+
+    public boolean prestar() {
+        boolean result = false;
+        if (Disponible) {
+            Disponible = false;
+            result = true;
+        }
+        return result;
+    }
+
+    public void devolver() {
+        Disponible = true;
+    }
+
+    @Override
+    public String toString() {
+        return "Título: " + Titulo + ", Autor: " + Autor + ", Año: " + AñoDePublic + ", Género: " + Genero + ", Disponible: " + (Disponible ? "Sí" : "No");
+    }
+}
