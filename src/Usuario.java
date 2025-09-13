@@ -33,6 +33,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario: "+"Número de identificación:" + ID + ", Nombre:" + Nombre + ", librosPrestados=" + LibrosPrestados.size();
+        return "Usuario: "+"Número de identificación:" + ID + ", Nombre:" + Nombre + ", librosPrestados:" + LibrosPrestados.size();
     }
 }
