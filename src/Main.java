@@ -79,6 +79,7 @@ public class Main {
                     scanner.nextLine();
                     System.out.print("Título del libro: ");
                     String tituloPrestamo = scanner.nextLine();
+                
                     if (biblioteca.prestarLibro(idPrestamo, tituloPrestamo)) {
                         System.out.println("Préstamo realizado.");
                     } else {
@@ -92,7 +93,9 @@ public class Main {
                     scanner.nextLine();
                     System.out.print("Título del libro: ");
                     String tituloDevolucion = scanner.nextLine();
+
                     if (biblioteca.devolverLibro(idDevolucion, tituloDevolucion)) {
+
                         System.out.println("Devolución realizada.");
                     } else {
                         System.out.println("No se pudo realizar la devolución.");
