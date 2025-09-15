@@ -114,5 +114,6 @@ public class Main {
                     System.out.println("Opción no válida.");
             }
         } while (opcion != 0);
+        scanner.close();
     }
 }
