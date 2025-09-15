@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Biblioteca {
     private Map<String, Libro> libros;
-    private Map<String, Usuario> usuarios;
+    private Map<Integer, Usuario> usuarios;
     private static final String ARCHIVO_LIBROS = "libros.dat";
     private static final String ARCHIVO_USUARIOS = "usuarios.dat";
 
@@ -43,11 +43,16 @@ public class Biblioteca {
     }
 
     public void registrarUsuario(Usuario usuario) {
-        usuarios.put(usuario.getId(), usuario);
-        guardarDatos();
+        if (usuarios.containsKey(usuario.getId())) {
+            System.out.println("Ya existe un usuario con este ID: " + usuario.getId());
+        } else {
+            usuarios.put(usuario.getId(), usuario);
+            guardarDatos();
+        }
     }
 
-    public Usuario buscarUsuario(String id) {
+
+    public Usuario buscarUsuario(int id) {
         return usuarios.get(id);
     }
 
@@ -55,26 +60,26 @@ public class Biblioteca {
         return new ArrayList<>(usuarios.values());
     }
 
-    public boolean prestarLibro(String idUsuario, String tituloLibro) {
+    public boolean prestarLibro(int idUsuario, String tituloLibro) {
         Libro libro = buscarLibro(tituloLibro);
         Usuario usuario = buscarUsuario(idUsuario);
 
         if (libro != null && usuario != null && libro.isDisponible()) {
             libro.setDisponible(false);
-            usuario.prestarLibro(tituloLibro);
+            usuario.prestarLibro(libro);
             guardarDatos();
             return true;
         }
         return false;
     }
 
-    public boolean devolverLibro(String idUsuario, String tituloLibro) {
+    public boolean devolverLibro(int idUsuario, String tituloLibro) {
         Libro libro = buscarLibro(tituloLibro);
         Usuario usuario = buscarUsuario(idUsuario);
 
         if (libro != null && usuario != null && !libro.isDisponible()) {
             libro.setDisponible(true);
-            usuario.devolverLibro(tituloLibro);
+            usuario.devolverLibro(libro);
             guardarDatos();
             return true;
         }
@@ -100,7 +105,7 @@ public class Biblioteca {
             try (ObjectInputStream oisLibros = new ObjectInputStream(new FileInputStream(fileLibros));
                  ObjectInputStream oisUsuarios = new ObjectInputStream(new FileInputStream(fileUsuarios))) {
                 libros = (Map<String, Libro>) oisLibros.readObject();
-                usuarios = (Map<String, Usuario>) oisUsuarios.readObject();
+                usuarios = (Map<Integer, Usuario>) oisUsuarios.readObject();
                 System.out.println("Datos cargados exitosamente.");
             } catch (IOException | ClassNotFoundException e) {
                 System.err.println("Error al cargar los datos: " + e.getMessage());

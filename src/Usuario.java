@@ -1,38 +1,38 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuario {
-    private int ID;
-    private String Nombre;
-    private ArrayList<Libro> LibrosPrestados;
+public class Usuario implements Serializable {
+    private int id;
+    private String nombre;
+    private ArrayList<Libro> librosPrestados;
 
     public Usuario(int id, String nombre) {
-        this.ID = id;
-        this.Nombre = nombre;
-        this.LibrosPrestados = new ArrayList<>();
+        this.id = id;
+        this.nombre = nombre;
+        this.librosPrestados = new ArrayList<>();
     }
 
     public int getId() {
-        return ID;
+        return id;
     }
-
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
-
     public ArrayList<Libro> getLibrosPrestados() {
-        return LibrosPrestados;
+        return librosPrestados;
     }
 
+    //Devolver y prestar
     public void prestarLibro(Libro libro) {
-        LibrosPrestados.add(libro);
+        librosPrestados.add(libro);
     }
 
     public void devolverLibro(Libro libro) {
-        LibrosPrestados.remove(libro);
+        librosPrestados.remove(libro);
     }
 
     @Override
     public String toString() {
-        return "Usuario: "+"Número de identificación:" + ID + ", Nombre:" + Nombre + ", librosPrestados:" + LibrosPrestados.size();
+        return "Usuario: "+"Número de identificación:" + id + ", Nombre:" + nombre + ", librosPrestados:" + librosPrestados.size();
     }
 }

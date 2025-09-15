@@ -79,7 +79,8 @@ public class Main {
                     scanner.nextLine();
                     System.out.print("Título del libro: ");
                     String tituloPrestamo = scanner.nextLine();
-                    if (biblioteca.prestarLibro(idPrestamo + "", tituloPrestamo)) {
+                
+                    if (biblioteca.prestarLibro(idPrestamo, tituloPrestamo)) {
                         System.out.println("Préstamo realizado.");
                     } else {
                         System.out.println("No se pudo realizar el préstamo.");
@@ -92,7 +93,9 @@ public class Main {
                     scanner.nextLine();
                     System.out.print("Título del libro: ");
                     String tituloDevolucion = scanner.nextLine();
-                    if (biblioteca.devolverLibro(idDevolucion + "", tituloDevolucion)) {
+
+                    if (biblioteca.devolverLibro(idDevolucion, tituloDevolucion)) {
+
                         System.out.println("Devolución realizada.");
                     } else {
                         System.out.println("No se pudo realizar la devolución.");
@@ -114,5 +117,6 @@ public class Main {
                     System.out.println("Opción no válida.");
             }
         } while (opcion != 0);
+        scanner.close();
     }
 }
