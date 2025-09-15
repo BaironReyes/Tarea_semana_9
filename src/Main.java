@@ -7,7 +7,7 @@ public class Main {
         int opcion;
 
         do {
-            System.out.println("\n--- Sistema de Gestión de Biblioteca ---");
+            System.out.println("\n Sistema de Gestión de Biblioteca ");
             System.out.println("1. Registrar libro");
             System.out.println("2. Registrar usuario");
             System.out.println("3. Listar todos los libros");
@@ -49,7 +49,7 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("\n--- Lista de libros ---");
+                    System.out.println("\nLista de libros ");
                     for (Libro l : biblioteca.listarTodosLosLibros()) {
                         System.out.println(l);
                     }
@@ -58,7 +58,7 @@ public class Main {
                 case 4:
                     System.out.print("Ingrese género: ");
                     String gen = scanner.nextLine();
-                    System.out.println("\n--- Libros por género ---");
+                    System.out.println("\n Libros por género ");
                     for (Libro l : biblioteca.listarLibrosPorGenero(gen)) {
                         System.out.println(l);
                     }
@@ -67,7 +67,7 @@ public class Main {
                 case 5:
                     System.out.print("¿Mostrar disponibles? (true/false): ");
                     boolean disp = scanner.nextBoolean();
-                    System.out.println("\n--- Libros por disponibilidad ---");
+                    System.out.println("\nLibros por disponibilidad ");
                     for (Libro l : biblioteca.listarLibrosPorDisponibilidad(disp)) {
                         System.out.println(l);
                     }
@@ -100,14 +100,14 @@ public class Main {
                     break;
 
                 case 8:
-                    System.out.println("\n--- Lista de usuarios ---");
+                    System.out.println("\nLista de usuarios ");
                     for (Usuario u : biblioteca.listarTodosLosUsuarios()) {
                         System.out.println(u);
                     }
                     break;
 
                 case 0:
-                    System.out.println("Saliendo del sistema...");
+                    System.out.println("Saliendo del sistema.");
                     break;
 
                 default:
