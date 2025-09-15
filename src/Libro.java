@@ -1,44 +1,45 @@
 public class Libro {
-    private String Titulo;
-    private String Autor;
-    private int AñoDePublic;
-    private String Genero;
-    private boolean Disponible;
+    private String titulo;
+    private String autor;
+    private int añoDePublic;
+    private String genero;
+    private boolean disponible;
 
-    public Libro(String Titulo, String Autor, int AñoDePublic, String Genero) {
-        this.Titulo = Titulo;
-        this.Autor = Autor;
-        this.AñoDePublic = AñoDePublic;
-        this.Genero = Genero;
-        this.Disponible = true; //
+    public Libro(String titulo, String autor, int añoDePublic, String genero) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.añoDePublic = añoDePublic;
+        this.genero = genero;
+        this.disponible = true;
     }
 
-    public String getTitulo() { return Titulo; }
-    public String getAutor() { return Autor; }
-    public int getAñoDePublic() { return AñoDePublic; }
-    public String getGenero() { return Genero; }
-    public boolean isDisponible() { return Disponible; }
+    public String getTitulo() { return titulo; }
+    public String getAutor() { return autor; }
+    public int getAñoDePublic() { return añoDePublic; }
+    public String getGenero() { return genero; }
+    public boolean isDisponible() { return disponible; }
 
-    public void setTitulo(String Titulo) { this.Titulo = Titulo; }
-    public void setAutor(String Autor) { this.Autor = Autor; }
-    public void setAñoDePublic(int AñoDePublic) { this.AñoDePublic = AñoDePublic; }
-    public void setGenero(String Genero) { this.Genero = Genero; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public void setAutor(String autor) { this.autor = autor; }
+    public void setAñoDePublic(int añoDePublic) { this.añoDePublic = añoDePublic; }
+    public void setGenero(String genero) { this.genero = genero; }
+    public void setDisponible(Boolean disponible) {this.disponible = disponible;}
 
     public boolean prestar() {
         boolean result = false;
-        if (Disponible) {
-            Disponible = false;
+        if (disponible) {
+            disponible = false;
             result = true;
         }
         return result;
     }
 
     public void devolver() {
-        Disponible = true;
+        disponible = true;
     }
 
     @Override
     public String toString() {
-        return "Título: " + Titulo + ", Autor: " + Autor + ", Año: " + AñoDePublic + ", Género: " + Genero + ", Disponible: " + (Disponible ? "Sí" : "No");
+        return "Título: " + titulo + ", Autor: " + autor + ", Año: " + añoDePublic + ", Género: " + genero + ", Disponible: " + (disponible ? "Sí" : "No");
     }
 }
